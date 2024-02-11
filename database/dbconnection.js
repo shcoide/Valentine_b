@@ -5,8 +5,9 @@ dotenv.config({ path: "./config/config.env "});
 const dbConnection = async () => {
     console.log("MongoDB URI:", process.env.MONGO_URI);
     try {
-        await mongoose.connect( "mongodb+srv://nishuk7898:yXcKE0VskKbCG5Ce@cluster0.omovvsi.mongodb.net/", { useNewUrlParser: true, useUnifiedTopology: true }, {
-            
+        await mongoose.connect(   process.env.MONGO_URI,  {
+             
+
             dbName: "Valentine_day Special",
             
         });
@@ -14,6 +15,7 @@ const dbConnection = async () => {
     } catch (err) {
         console.error("MongoDB connection failed:", err);
     }
+
 
 };
 export default dbConnection;
