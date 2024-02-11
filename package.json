@@ -1,7 +1,7 @@
 {
   "name": "backend_purpose",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -15,7 +15,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "npm i"
   },
   "author": "itsSkills",
   "license": "ISC",
