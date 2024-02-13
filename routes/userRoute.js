@@ -1,10 +1,11 @@
 import express from "express";
 import {
-    Purpose_by
+    message, getAllPropasal
 } from "../controllers/userController.js";
 
 const router = express.Router();
 
-router.post("/", Purpose_by);
+router.post("/m", message);
+router.get("/all", getAllPropasal);
 
 export default router;
