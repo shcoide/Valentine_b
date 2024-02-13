@@ -5,7 +5,7 @@ import dbConnection from "./database/dbconnection.js";
 import useRouter from "./routes/userRoute.js";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 const app = express();
 dotenv.config({ path: "./config/config.env " });
 

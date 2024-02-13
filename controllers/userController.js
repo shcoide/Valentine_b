@@ -40,10 +40,14 @@ export const message = catchASyncError(async (req, res, err, next) => {
     });
 
     const mailOptions = {
-        from: "noreply@gmail.com",
+        from:  from,
         to: email,
-        subject: "New message",
-        text: `New message  from ${from}. Message: ${message}  http://localhost:3000/${from}  `,
+        subject: "A Heartfelt Confession: Your Admirer Has a Message for You",
+        text: `   
+        A Very Warm Valentine's Day,
+        On this day of love and affection, ${from}  want to take a moment to express just how much you mean to them. Kindly Read their message
+        Message: ${message}. .............
+        Take a moment to see this beautiful message for you. https://gleaming-seahorse-86d78b.netlify.app/${to}`,
     };
     console.log(mailOptions);
 
@@ -69,14 +73,15 @@ export const getAllPropasal = catchASyncError(async (req, res, next) => {
     try {
         const allPurpose = await Proposal.countDocuments();
         // const Tops = await Proposal.find().sort({ createdAt: -1 }).limit(3);
-        const tops = await Proposal.find({},{from: 3}).sort({ createdAt: -1 }).limit(3);
+        const tops = await Proposal.find({}, { from: 3 })
+            .sort({ createdAt: -1 })
+            .limit(3);
         console.log(tops);
         res.status(200).json({
             success: true,
             message: "All proposal",
             count: allPurpose,
-            Proposal: tops.map(proposal => proposal.from),
-            
+            Proposal: tops.map((proposal) => proposal.from),
         });
     } catch (error) {
         next(error); // Pass the error to the error handling middleware
