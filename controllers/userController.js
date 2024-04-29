@@ -1,5 +1,5 @@
 import User from "../modals/userSchema.js";
-import { catchASyncError } from "../Middleware/catchASyncError.js";
+import { catchAsyncError } from "../Middleware/catchASyncError.js";
 import nodemailer from "nodemailer";
 import Proposal from "../modals/userSchema.js";
 
@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-export const message = catchASyncError(async (req, res, err, next) => {
+export const message = catchAsyncError(async (req, res, err, next) => {
     const { to, email, from, message } = req.body;
 
     if (!to || !email || !from || !message) {
@@ -69,7 +69,7 @@ export const message = catchASyncError(async (req, res, err, next) => {
     }
 });
 
-export const getAllPropasal = catchASyncError(async (req, res, next) => {
+export const getAllPropasal = catchAsyncError(async (req, res, next) => {
     try {
         const allPurpose = await Proposal.countDocuments();
         // const Tops = await Proposal.find().sort({ createdAt: -1 }).limit(3);
